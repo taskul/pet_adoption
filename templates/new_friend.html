@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Pets looking for friends</h1>
+<div class="main-container">
+    <div class="form-container">
+        <form action='/add' method='POST' novalidate>
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label}}<br>
+            {{ form.name}}<br>
+            {{ form.species.label}}<br>
+            {{ form.species}}<br>
+            {{ form.photo_url.label}}<br>
+            {{ form.photo_url}}<br>
+            {{ form.age.label}}<br>
+            {{ form.age}}<br>
+            {{ form.notes.label}}<br>
+            {{ form.notes}}<br>
+            <br>
+            <button class="primary-button">Submit</button>
+            <a href="/" class="secondary-button">Go Back</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

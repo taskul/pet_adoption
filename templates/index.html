@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class='page-title'>Pets looking for friends</h1>
+<div class="main-container">
+    {% if pets %}
+        {% for pet in pets %}
+        <div class="pet-card">
+            <a href='/{{ pet.id }}/edit'>Edit</a>
+            <p class="pet-card-title">{{ pet.name }}</p>
+            <br>
+            <img src="{{ pet.photo_url}}" class="pet-card-photo">
+            <br>
+            <div class="pet-availability">
+            {% if pet.available %}
+                <p>Available</p>
+            {% else %}
+                <p>They found a friend</p>
+            {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock %}

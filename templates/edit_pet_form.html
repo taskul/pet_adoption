@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Edit Pet info</h1>
+<div class="main-container">
+    <div class="form-container">
+        <form action='/{{pet.id}}/edit' method='POST' novalidate>
+            {{ form.hidden_tag() }}
+            {% for field in form 
+            if field.widget.input_type != 'hidden' %}
+                
+                {{ field.label }}
+                {{ field }}
+
+                {% for err in field.errors %}
+                <small class="form-text text-danger">
+                    {{err}}
+                </small>
+                
+                 {% endfor %}
+            <br>
+            {% endfor %}
+            <br>
+            <br>
+            <button class="primary-button">Submit</button>
+            <a href="/" class="secondary-button">Go Back</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
